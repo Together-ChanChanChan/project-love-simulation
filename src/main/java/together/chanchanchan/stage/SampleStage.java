@@ -10,7 +10,7 @@ public class SampleStage extends GameController implements Game {
 
     @Override
     public void play() {
-        checkStyle();
+        checkStyle(likeStyle);
         gameStart();
         /*
         게
@@ -18,6 +18,6 @@ public class SampleStage extends GameController implements Game {
         구
         현
         */
-        gameEnd();
+        gameEnd(name, isCleared);
     }
 }
