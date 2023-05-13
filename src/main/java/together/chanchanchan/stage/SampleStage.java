@@ -2,7 +2,7 @@ package together.chanchanchan.stage;
 
 public class SampleStage extends GameController implements Game {
 
-    public final String name = "희수";             //이름
+    public static final String name = "희수";             //이름
     public final int age = 20;                 //나이
     public final String likeStyle = "트레이닝복";        //선호스타일
     public final String feature = "배고프다";          //특징, 정보 출력할 때
@@ -20,4 +20,9 @@ public class SampleStage extends GameController implements Game {
         */
         gameEnd();
     }
+
+    @Override
+    public void printGirlInfo() {
+
+    };
 }
