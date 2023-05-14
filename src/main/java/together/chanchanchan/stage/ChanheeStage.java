@@ -59,6 +59,7 @@ public class ChanheeStage extends GameController implements Game {
             // 정답을 맞췄을 경우 게임 종료
             if (strike == answer.length()) {
                 System.out.println("홈런! 정답이야.");
+                isCleared = true;
                 break;
             }
         }
