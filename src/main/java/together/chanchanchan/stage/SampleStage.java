@@ -10,15 +10,15 @@ public class SampleStage extends GameController implements Game {
 
     @Override
     public void play() {
-        checkStyle();
-        gameStart();
+        checkStyle(likeStyle);
+        gameStart(name);
         /*
         게
         임
         구
         현
         */
-        gameEnd();
+        gameEnd(name, isCleared);
     }
 
     @Override
