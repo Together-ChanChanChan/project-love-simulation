@@ -4,4 +4,6 @@ public interface Game {
     public void play();
 
     public void printGirlInfo();
+
+    public void gameInfo();
 }
