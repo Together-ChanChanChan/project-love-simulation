@@ -64,7 +64,6 @@ public class ChanheeStage extends GameController implements Game {
             }
         }
         sc.close();
-
         gameEnd();
     }
 
