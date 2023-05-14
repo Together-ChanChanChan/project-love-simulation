@@ -8,6 +8,8 @@ public class GameControllerTest {
 
     Player player = new Player("player1");
     GameController gc = new GameController();
+    String name = "test";
+
 
     @DisplayName("플레이어가 착용한 옷과 상대의 선호 스타일이 일치하는지 확인")
     @Test
@@ -24,15 +26,15 @@ public class GameControllerTest {
     @Test
     public void testGameStart() {
 
-        gc.gameStart();
+        gc.gameStart(name);
     }
 
     @DisplayName("gameEnd method 호출 확인")
     @Test
     public void testGameEnd() {
 
-        gc.gameEnd("test", false);
+        gc.gameEnd(name, false);
 
-        gc.gameEnd("test", true);
+        gc.gameEnd(name, true);
     }
 }
