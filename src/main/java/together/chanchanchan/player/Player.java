@@ -8,9 +8,8 @@ public class Player {
     public String nowStyle = style[0];
     public int playTime = 0;
 
-    public Player (String name){
-        this.name = name;
-    }
+    public Player (){}
+
     public void changeStyle(){Scanner sc = new Scanner(System.in);
         System.out.println("====== 옷 갈아입기 ======");
         System.out.println("1. 맨몸");
