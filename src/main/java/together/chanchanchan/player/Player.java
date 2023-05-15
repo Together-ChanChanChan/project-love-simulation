@@ -11,8 +11,7 @@ public class Player {
     public Player (String name){
         this.name = name;
     }
-    public void changeStyle(){
-        Scanner sc = new Scanner(System.in);
+    public void changeStyle(){Scanner sc = new Scanner(System.in);
         System.out.println("====== 옷 갈아입기 ======");
         System.out.println("1. 맨몸");
         System.out.println("2. 츄리닝");
@@ -21,14 +20,16 @@ public class Player {
         System.out.println("5. 정장");
         System.out.println("=======================");
         System.out.println("번호를 입력하세요 : ");
-        int selectedStyle = sc.nextInt();
-        
+        int selectedStyle = 0;
+
         while (true){
+            selectedStyle = sc.nextInt();
             if(selectedStyle >=1 && selectedStyle <6){
                 this.nowStyle = this.style[selectedStyle];
+                System.out.println("스타일이 [" + style[selectedStyle] + "] (으)로 변경되었습니다.");
+                break;
             } else {
                 System.out.println("1~6 범위의 숫자를 입력하세요. ");
-                break;
             }
         }
     } // 옷 갈아 입기
