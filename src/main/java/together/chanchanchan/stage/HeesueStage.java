@@ -10,4 +10,9 @@ public class HeesueStage extends GameController implements Game {
     public void printGirlInfo() {
 
     }
+
+    @Override
+    public void gameInfo() {
+
+    }
 }
