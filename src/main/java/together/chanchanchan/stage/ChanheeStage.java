@@ -4,23 +4,24 @@ import java.util.Scanner;
 
 public class ChanheeStage extends GameController implements Game {
 
-    public static final String name = "찬희";             //이름
-    public final int age = 23;                 //나이
-    public final String likeStyle = "후드티";        //선호스타일
-    public final String feature = "베이스볼 게임 중독";          //특징, 정보 출력할 때
-    public boolean isCleared;       //게임 깼는지
+    public static final String NAME = "찬희";             //이름
+    public final int AGE = 21;                           //나이
+    public final String LIKESTYLE = "후드티";             //선호스타일
+    public final String FEATURE = "베이스볼 게임 중독";     //특징, 정보 출력할 때
+    public boolean isCleared;                            //게임 깼는지
+
     @Override
     public void play() {
-        checkStyle();
-        gameStart();
+        boolean checkStyle = checkStyle(LIKESTYLE);
+        gameStart(NAME);
+        gameInfo();
         // 베이스볼 게임 시작
         String answer = "princess";     //정답 단어
-        System.out.println("정답 단어는 알파벳 8개야.");
-        if(checkStyle()){
-            System.out.println("후드티가 마음에 들어서 하는 말은 아닌데, 첫 알파벳은 'p'야.");
-        }
         Scanner sc = new Scanner(System.in);
 
+        if(checkStyle){
+            System.out.println("후드티가 마음에 들어서 하는 말은 아닌데, 첫 알파벳은 'p'야.");
+        }
         while (true) {
             System.out.print("단어를 입력하세요: ");
             String input = sc.nextLine();
@@ -48,7 +49,7 @@ public class ChanheeStage extends GameController implements Game {
             } else {
                 String message = "";
                 if (strike > 0) {
-                    message += strike + "스트라이크 ";
+                    message += strike + "스트라이크";
                 }
                 if (ball > 0) {
                     message += ball + "볼";
@@ -63,15 +64,23 @@ public class ChanheeStage extends GameController implements Game {
                 break;
             }
         }
-        sc.close();
-        gameEnd();
+        gameEnd(NAME, isCleared);
     }
 
     @Override
     public void printGirlInfo() {
-        System.out.println("이름 : " + name);
-        System.out.println("나이 : "+ age);
-        System.out.println("선호 스타일 : " + likeStyle);
-        System.out.println("특징 : " + feature);
+        System.out.println("이름 : " + NAME);
+        System.out.println("나이 : "+ AGE);
+        System.out.println("선호 스타일 : " + LIKESTYLE);
+        System.out.println("특징 : " + FEATURE);
+    }
+
+    @Override
+    public void gameInfo() {
+        System.out.println("======" + NAME + "STAGE 게임 소개 ======");
+        System.out.println("베이스볼 게임 들어봤어?");
+        System.out.println("8글자의 알파벳 단어를 맞추는 게임이야.");
+        System.out.println("네가 8개의 단어를 입력해서 알파벳만 맞추면 볼, 알파벳과 자리를 모두 맞추면 스트라이크로 힌드를 줄게");
+        System.out.println("모두 맞추면 홈런, 정답이야. \n 그럼 단어를  입력해줘!");
     }
 }
