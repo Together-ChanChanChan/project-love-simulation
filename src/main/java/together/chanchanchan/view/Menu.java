@@ -12,7 +12,7 @@ public class Menu {
     ChanheeStage chanhee = new ChanheeStage();
     Scanner sc = new Scanner(System.in);
     String setName;
-    Player player = new Player(setName);
+    Player player = new Player();
     private boolean checkGameSet;
     public void mainMenu() {
         int menu;
@@ -61,6 +61,7 @@ public class Menu {
             System.out.println("??? : 안녕? 넌 처음보는 얼굴인데, 이름이 뭐니?");
             System.out.print("이름을 입력해주세요 : ");
             setName = sc.nextLine();
+            player.name = setName;
             checkGameSet = true;
             System.out.println("??? : 우리 학교는 정말 매력적인 친구들이 많아, 꼭 데이트 성공하길 바래 0_<");
             System.out.println("게임 초기 설정이 완료되었습니다.");
@@ -110,7 +111,7 @@ public class Menu {
     private void viewMyInfo() {
         if(checkGameSet) {
             System.out.println("====== 나의 현재 정보 보기 ======");
-            System.out.println("착용한 옷 : " + player.nowSytle);
+            System.out.println("착용한 옷 : " + player.nowStyle);
             System.out.println("여학생 공략 횟수 : " + player.playTime);
         } else {
             System.out.println("주의! 게임 설정을 하지 않으면 플레이를 할 수 없습니다!");
@@ -140,16 +141,22 @@ public class Menu {
 
                 switch (menu) {
                     case 1 :
-                        dahee.play();
+                        dahee.play(setName, player.nowStyle);
+                        // setName : 플레이어가 설정한 이름, player.nowStyle 플레이어가 현재 착용한 옷 상태
+                        player.playTime++;
+                        // 게임 끝나면 플레이 횟수 증가
                         break;
                     case 2 :
-                        hyunji.play();
+                        hyunji.play(setName, player.nowStyle);
+                        player.playTime++;
                         break;
                     case 3 :
-                        heesue.play();
+                        heesue.play(setName, player.nowStyle);
+                        player.playTime++;
                         break;
                     case 4 :
-                        chanhee.play();
+                        chanhee.play(setName, player.nowStyle);
+                        player.playTime++;
                         break;
                     case 5 :
                         return;
