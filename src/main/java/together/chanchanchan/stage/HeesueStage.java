@@ -23,13 +23,13 @@ public class HeesueStage extends GameController implements Game {
         int count = 3;
         String[] selectedGift = new String[3];
         HashMap<String, Integer> giftList = new HashMap<>();
-        giftList.put("손톱깎이",60);
-        giftList.put("마우스",50);
-        giftList.put("녹차초콜릿",45);
+        giftList.put("녹차초콜릿",60);
+        giftList.put("숲속무드등",50);
+        giftList.put("손톱깎이",45);
         giftList.put("향수", 40);
         giftList.put("곰인형", 35);
         giftList.put("안경", 30);
-        giftList.put("숲속무드등", 25);
+        giftList.put("마우스", 25);
         giftList.put("편지", 20);
         giftList.put("종이학", 15);
         giftList.put("아이맥스", 10);
@@ -67,6 +67,7 @@ public class HeesueStage extends GameController implements Game {
                }else {
                    System.out.println(NAME + ": 센스가 좀..;;");
                    System.out.println(NAME + ": 다시 도전해 보세요");
+                   System.out.println("당신의 점수 : " + score);
                    count--;
                    if (count == 0){
                        break;
@@ -76,6 +77,7 @@ public class HeesueStage extends GameController implements Game {
                System.out.println("목록 내의 선물을 입력해주세요");
            }
         }
+        System.out.println("당신의 점수 : " + score);
         gameEnd(NAME, isCleared);
     }
 
@@ -85,7 +87,7 @@ public class HeesueStage extends GameController implements Game {
         System.out.println("요즘 주변 나무들도 초록초록하고~ 내 초록가디건도 맘에 들고~");
         System.out.println("엇..! 사람이 있었네");
         System.out.println("안녕하세요~ 제 이름은 " + NAME + "입니다! 전 초록색을 좋아해요~");
-        System.out.println("개인적으로는 트레이닝복 입은 사람한테도 끌리더라고요!");
+        System.out.println("개인적으로는 '트레이닝복' 입은 사람한테도 끌리더라고요!");
         System.out.println("아~ 대화가 잘 통해서 저랑 상담을 하고 싶으시구나~");
         System.out.println("저는 사람 심리보다 컴퓨터 로직이 더 재밌어서 이만^^;;");
         System.out.println("=======" + NAME + "의 특징 =======");
