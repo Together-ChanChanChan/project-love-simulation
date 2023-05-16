@@ -18,7 +18,7 @@ public class ChanheeStage extends GameController implements Game {
         Scanner sc = new Scanner(System.in);
 
         // 베이스볼 게임 시작
-        String answer = "princess";     //정답 단어
+        String answer = "prince";     //정답 단어
         if(checkStyle){
             System.out.println("후드티가 마음에 들어서 하는 말은 아닌데, 첫 알파벳은 'p'야.");
         }
@@ -82,7 +82,7 @@ public class ChanheeStage extends GameController implements Game {
         System.out.println("======" + NAME + "STAGE 게임 소개 ======");
         System.out.println("베이스볼 게임 들어봤어?");
         System.out.println("8글자의 알파벳 단어를 맞추는 게임이야.");
-        System.out.println("네가 8개의 단어를 입력해서 알파벳만 맞추면 볼, 알파벳과 자리를 모두 맞추면 스트라이크로 힌드를 줄게");
+        System.out.println("네가 8개의 단어를 입력해서 알파벳만 맞추면 볼, 알파벳과 자리를 모두 맞추면 스트라이크로 힌트를 줄게");
         System.out.println("모두 맞추면 홈런, 정답이야. \n 그럼 단어를  입력해줘!");
     }
 }
