@@ -12,6 +12,7 @@ public class HeesueStage extends GameController implements Game {
     public final String LIKESTYLE = "트레이닝복";
     public final String FEATURE = "공감적 대화의 달인, Green Lover Girl~ ";
     public boolean isCleared;
+    public boolean isTry;
     @Override
     public void play(String playerName, String nowStyle) {
         Scanner sc = new Scanner(System.in);
@@ -79,6 +80,7 @@ public class HeesueStage extends GameController implements Game {
         }
         System.out.println("당신의 점수 : " + score);
         gameEnd(NAME, isCleared);
+        isTry = true;
     }
 
     @Override
