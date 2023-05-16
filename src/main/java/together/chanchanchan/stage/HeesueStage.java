@@ -34,6 +34,11 @@ public class HeesueStage extends GameController implements Game {
         giftList.put("종이학", 15);
         giftList.put("아이맥스", 10);
 
+        if(checkStyle){
+            score += 10;
+            System.out.println(NAME + "가 당신의 스타일을 좋아한다고 하네요! (+ 10점 )");
+        }
+
         System.out.println("리스트 목록");
         System.out.print("[");
         for (String s : giftList.keySet()){
@@ -41,10 +46,6 @@ public class HeesueStage extends GameController implements Game {
         }
         System.out.println("]");
 
-        if(checkStyle){
-            score += 10;
-            System.out.println(NAME + "가 당신의 스타일을 좋아한다고 하네요! (+ 10점 )");
-        }
 
         while(count > 0){
             System.out.println("선물 세 가지를 골라 입력하세요.");
@@ -84,8 +85,9 @@ public class HeesueStage extends GameController implements Game {
         System.out.println("요즘 주변 나무들도 초록초록하고~ 내 초록가디건도 맘에 들고~");
         System.out.println("엇..! 사람이 있었네");
         System.out.println("안녕하세요~ 제 이름은 " + NAME + "입니다! 전 초록색을 좋아해요~");
+        System.out.println("개인적으로는 트레이닝복 입은 사람한테도 끌리더라고요!");
         System.out.println("아~ 대화가 잘 통해서 저랑 상담을 하고 싶으시구나~");
-        System.out.println("저는 사람 심리보다 컴퓨터 로직이 더 재밌어서 이만;;;;");
+        System.out.println("저는 사람 심리보다 컴퓨터 로직이 더 재밌어서 이만^^;;");
         System.out.println("=======" + NAME + "의 특징 =======");
         System.out.println(FEATURE);
     }
