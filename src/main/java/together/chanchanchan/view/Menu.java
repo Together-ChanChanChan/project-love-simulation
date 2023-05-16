@@ -141,16 +141,22 @@ public class Menu {
 
                 switch (menu) {
                     case 1 :
-                        dahee.play();
+                        dahee.play(setName, player.nowStyle);
+                        // setName : 플레이어가 설정한 이름, player.nowStyle 플레이어가 현재 착용한 옷 상태
+                        player.playTime++;
+                        // 게임 끝나면 플레이 횟수 증가
                         break;
                     case 2 :
-                        hyunji.play();
+                        hyunji.play(setName, player.nowStyle);
+                        player.playTime++;
                         break;
                     case 3 :
-                        heesue.play();
+                        heesue.play(setName, player.nowStyle);
+                        player.playTime++;
                         break;
                     case 4 :
-                        chanhee.play();
+                        chanhee.play(setName, player.nowStyle);
+                        player.playTime++;
                         break;
                     case 5 :
                         return;
