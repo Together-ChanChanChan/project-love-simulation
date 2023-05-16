@@ -145,22 +145,38 @@ public class Menu {
 
                 switch (menu) {
                     case 1 :
-                        dahee.play(setName, player.nowStyle);
-                        // setName : 플레이어가 설정한 이름, player.nowStyle 플레이어가 현재 착용한 옷 상태
-                        player.playTime++;
-                        // 게임 끝나면 플레이 횟수 증가
+                        if(dahee.isTry) {
+                            System.out.println("미안," + dahee.NAME + "를 꼬시는 건 한 번밖에 시도할 수 없어");
+                        } else {
+                            dahee.play(setName, player.nowStyle);
+                            // setName : 플레이어가 설정한 이름, player.nowStyle 플레이어가 현재 착용한 옷 상태
+                            player.playTime++;
+                            // 게임 끝나면 플레이 횟수 증가
+                        }
                         break;
                     case 2 :
-                        hyunji.play(setName, player.nowStyle);
-                        player.playTime++;
+                        if(hyunji.isTry) {
+                            System.out.println(hyunji.NAME + "와 데이트를 더 하고 싶겠지만, 한 번밖에 시도할 수 없어");
+                        } else {
+                            hyunji.play(setName, player.nowStyle);
+                            player.playTime++;
+                        }
                         break;
                     case 3 :
-                        heesue.play(setName, player.nowStyle);
-                        player.playTime++;
+                        if(heesue.isTry) {
+                            System.out.println(heesue.NAME +"를 또 보고 싶구나? 하지만, 기회는 한 번 뿐이었어");
+                        } else {
+                            heesue.play(setName, player.nowStyle);
+                            player.playTime++;
+                        }
                         break;
                     case 4 :
-                        chanhee.play(setName, player.nowStyle);
-                        player.playTime++;
+                        if(chanhee.isTry) {
+                            System.out.println("숫자 맞추는 게 재미있었지? 그치만, " + chanhee.NAME +"와 게임은 한 번밖에 할 수 없어");
+                        } else {
+                            chanhee.play(setName, player.nowStyle);
+                            player.playTime++;
+                        }
                         break;
                     case 5 :
                         return;

@@ -9,6 +9,7 @@ public class DaheeStage extends GameController implements Game {
     public final String LIKESTYLE = "정장";               //선호스타일
     public final String FEATURE = "영혼의 듀오를 구하고 있음";          //특징, 정보 출력할 때
     public boolean isCleared;                           //게임 깼는지
+    public boolean isTry;
 
     @Override
     public void play(String playerName, String nowStyle) {
@@ -48,6 +49,7 @@ public class DaheeStage extends GameController implements Game {
             }
         }
         gameEnd(NAME, isCleared);
+        isTry = true;
     }
 
     @Override
