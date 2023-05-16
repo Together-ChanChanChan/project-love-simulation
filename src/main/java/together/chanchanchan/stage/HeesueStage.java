@@ -17,7 +17,7 @@ public class HeesueStage extends GameController implements Game {
         Scanner sc = new Scanner(System.in);
         gameInfo();
         boolean checkStyle = checkStyle(nowStyle, LIKESTYLE);
-        gameStart(playerName,NAME);
+        gameStart(NAME, playerName);
 
         int score = 0;
         int count = 3;
