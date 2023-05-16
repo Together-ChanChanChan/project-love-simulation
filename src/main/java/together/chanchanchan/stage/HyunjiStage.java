@@ -12,11 +12,11 @@ public class HyunjiStage extends GameController implements Game {
     public boolean isCleared;
 
     @Override
-    public void play() {
+    public void play(String playerName, String nowStyle) {
         gameInfo();
         Scanner sc = new Scanner(System.in);
-        boolean checkStyle = checkStyle(LIKESTYLE);
-        gameStart(NAME);
+        boolean checkStyle = checkStyle(nowStyle, LIKESTYLE);
+        gameStart(NAME, playerName);
 
         String[] RPC = {"가위", "바위", "보"};
         int playCount = 0;
@@ -87,18 +87,17 @@ public class HyunjiStage extends GameController implements Game {
 
     @Override
     public void printGirlInfo() {
-        System.out.println("printGirlInfo method 호출...");
+        System.out.println("================================");
         System.out.println("안녕! 내 이름은 " + NAME + "야! 나는 토마토를 정말 좋아해... 🍅");
+        System.out.println("내 나이가 몇 살이냐고? 숙녀에게 나이를 묻다니... 너무한데? 하지만, 특별히 너한테는 알려 줄게 나는 " + AGE + "살이야.");
         System.out.println("그리고 나는... 이상하게 '체크남방'이 참 좋더라구? 이상하게 매력적이란 말이지 :)");
         System.out.println("내 친구들이 적어준 내 특징이 있는데 볼래? 좋다고? 알았어!");
-        System.out.println("=======" + NAME + "의 특징 =======");
-        System.out.println(FEATURE);
+        System.out.println(NAME + "의 특징 : " + FEATURE);
         System.out.println("이제 내 소개는 끝났어! 안녕! 잘 가!");
     }
 
     @Override
     public void gameInfo() {
-        System.out.println("gameInfo method 호출...");
         System.out.println("======" + NAME + "STAGE 게임 소개 ======");
         System.out.println("이번 스테이지는 '가위바위보'입니다.\n총 5번의 기회가 주어지며, 그 중 3번을 이기면 " + NAME + "와의 데이트를 즐길 수 있습니다.");
         System.out.println("가위는 1번, 바위는 2번, 보는 3번을 입력하여 낼 수 있습니다.\n최선을 다해 게임을 이겨보세요!");
