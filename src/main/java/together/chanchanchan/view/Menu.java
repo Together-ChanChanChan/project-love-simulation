@@ -55,13 +55,17 @@ public class Menu {
         } while(true);
     }
 
-    private void gameSet() {
+    public void gameSet() {
         if (!checkGameSet){
             sc.nextLine();
             System.out.println("??? : 안녕? 넌 처음보는 얼굴인데, 이름이 뭐니?");
             System.out.print("이름을 입력해주세요 : ");
-            setName = sc.nextLine();
-            player.name = setName;
+//            setName = sc.nextLine();
+            do {
+                System.out.println("이름이 입력되지 않았습니다.");
+                System.out.println("설정할 이름을 다시 입력해 주세요 : ");
+                setName = sc.nextLine();
+            } while (setName.length() == 0);
             checkGameSet = true;
             System.out.println("??? : 우리 학교는 정말 매력적인 친구들이 많아, 꼭 데이트 성공하길 바래 0_<");
             System.out.println("게임 초기 설정이 완료되었습니다.");
