@@ -19,10 +19,20 @@ public class GameController {
 
     public void gameEnd(String name, boolean isCleared) {
         //데이트 기회 획득 여부
-        if(isCleared)
+        if(isCleared) {
             System.out.println(name + " : 이기셨네요? 데이트 한 번 해봐요...! 다음 주에 시간 언제 괜찮으세요?");
-        else
+            System.out.println(".⠀⢰⠒⠒⠒⢲⠆⠀⠀⢀⠤⢤⡀⠀⡴⠀⠀⢀⣀⣀⣰⣀⣀⡀⠀⠀⠀⠀⠀\n" +
+                    "⠀⠀⣎⣀⣀⣀⡜⠀⠀⢰⠃⠀⢠⠇⢰⠓⠂⠀⢀⠔⠒⠒⠲⡄⠀⠀⠀⠀⠀⠀\n" +
+                    "⠤⠤⠤⣤⠤⠤⠤⠄⠀⣇⠀⢀⠞⢀⡯⠤⠀⠀⠹⠤⡤⠤⠞⠁⠀⢠⠔⢤⣀⠆\n" +
+                    " ⠀⠀⢀⡏⠀⠀⠀⠀⠀⠈⠉⠁⠀⡸⠀⠀⠠⠤⠤⠴⠧⠤⠤⠄⠀⠀⠀⠀⠀\n");
+        } else{
             System.out.println(name + " : 데이트는 어려울거 같아요~ 다른 사람 찾아보세요!");
+            System.out.println("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n" +
+                    "████▌▄▌▄▐▐▌█████\n" +
+                    "████▌▄▌▄▐▐▌▀████\n" +
+                    "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀\n");
+        }
+
 
         System.out.println("~ " + name + " 라운드 종료 ~\n메뉴로 돌아갑니다.");
     }
