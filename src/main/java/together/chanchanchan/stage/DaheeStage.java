@@ -37,6 +37,7 @@ public class DaheeStage extends GameController implements Game {
 
             if (input_num == origin_num) {
                 System.out.println("정답을" + (count) + "번째 시도에 맞췄어!");
+                isCleared = true;
                 break;
             } else if (input_num > origin_num) {
                 System.out.println("다운");
