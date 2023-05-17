@@ -40,12 +40,19 @@ public class HeesueStage extends GameController implements Game {
             System.out.println(NAME + "가 당신의 스타일을 좋아한다고 하네요! (+ 10점 )");
         }
 
-        System.out.println("리스트 목록");
-        System.out.print("[");
-        for (String s : giftList.keySet()){
-            System.out.print(" " + s +",");
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+
+        for (String s : giftList.keySet()) {
+            sb.append(s);
+            sb.append(", ");
         }
-        System.out.println("]");
+
+        sb.setLength(sb.length() - 2);
+
+        sb.append("]");
+
+        System.out.println(sb);
 
 
         while(count > 0){
