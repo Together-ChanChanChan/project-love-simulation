@@ -18,7 +18,7 @@ public class Player {
         System.out.println("4. 후드티");
         System.out.println("5. 정장");
         System.out.println("=======================");
-        System.out.println("번호를 입력하세요 : ");
+        System.out.print("번호를 입력하세요 : ");
         int selectedStyle = 0;
 
         while (true){
