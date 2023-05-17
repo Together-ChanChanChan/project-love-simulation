@@ -54,12 +54,11 @@ public class ChanheeStage extends GameController implements Game {
                 String message = "";
                 if (strike > 0) {
                     message += strike + "스트라이크";
-                    chance--;
                 }
                 if (ball > 0) {
                     message += ball + "볼";
-                    chance--;
                 }
+                chance--;
                 System.out.println(message);
             }
 
