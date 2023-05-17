@@ -88,8 +88,8 @@ public class ChanheeStage extends GameController implements Game {
     public void gameInfo() {
         System.out.println("======" + NAME + "STAGE 게임 소개 ======");
         System.out.println("베이스볼 게임 들어봤어?");
-        System.out.println("8글자의 알파벳 단어를 맞추는 게임이야.");
-        System.out.println("네가 8개의 단어를 입력해서 알파벳만 맞추면 볼, 알파벳과 자리를 모두 맞추면 스트라이크로 힌트를 줄게");
+        System.out.println("6글자의 알파벳 단어를 맞추는 게임이야.");
+        System.out.println("네가 6개의 단어를 입력해서 알파벳만 맞추면 볼, 알파벳과 자리를 모두 맞추면 스트라이크로 힌트를 줄게");
         System.out.println("모두 맞추면 홈런, 정답이야. 기회는 총 8번!!\n 그럼 단어를  입력해줘!");
     }
 }
