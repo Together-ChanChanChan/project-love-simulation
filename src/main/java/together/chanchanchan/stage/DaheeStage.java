@@ -69,7 +69,7 @@ public class DaheeStage extends GameController implements Game {
         System.out.println("======" + NAME + "STAGE 게임 소개 ======");
         System.out.println("내가 생각한 숫자를 맞춰봐! 범위는 1~50이고, 기회는 5번이야.");
         System.out.println("큰 수를 입력했을 경우 '다운', 작은 수를 입력했을 경우 '업'으로 힌트를 줄게.");
-        System.out.println("내 취향에 맞는 옷을 입고 있으면 기회가 6번으로 늘어나!");
+        System.out.println("내 취향에 맞는 옷을 입고 있으면 기회를 6번 줄게.");
 
 
     }
