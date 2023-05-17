@@ -22,9 +22,10 @@ public class Menu {
             System.out.println("1. 게임 설정하기");
             System.out.println("2. 여학생 정보 보기");
             System.out.println("3. 현재 내 캐릭터 상태 보기");
-            System.out.println("4. 옷 갈아입기");
-            System.out.println("5. 게임 시작하기");
-            System.out.println("6. 게임 끝내기");
+            System.out.println("4. 시도 횟수 보기");
+            System.out.println("5. 옷 갈아입기");
+            System.out.println("6. 게임 시작하기");
+            System.out.println("7. 게임 끝내기");
             System.out.println("==============================");
             System.out.print("메뉴 선택하기 : ");
             menu = sc.nextInt();
@@ -40,12 +41,15 @@ public class Menu {
                     viewMyInfo();
                     break;
                 case 4 :
-                    changeClothes();
+                    viewTryInfo();
                     break;
                 case 5 :
-                    checkStart();
+                    changeClothes();
                     break;
                 case 6 :
+                    checkStart();
+                    break;
+                case 7 :
                     checkEnd();
                     break;
                 default:
@@ -63,7 +67,7 @@ public class Menu {
             setName = sc.nextLine();
             while (setName.length() == 0) {
                 System.out.println("이름이 입력되지 않았습니다.");
-                System.out.println("설정할 이름을 다시 입력해 주세요 : ");
+                System.out.print("설정할 이름을 다시 입력해 주세요 : ");
                 setName = sc.nextLine();
             }
             checkGameSet = true;
@@ -115,10 +119,30 @@ public class Menu {
     private void viewMyInfo() {
         if(checkGameSet) {
             System.out.println("====== 나의 현재 정보 보기 ======");
+            System.out.println("내 이름 : " + setName);
             System.out.println("착용한 옷 : " + player.nowStyle);
             System.out.println("여학생 공략 횟수 : " + player.playTime);
         } else {
             System.out.println("주의! 게임 설정을 하지 않으면 플레이를 할 수 없습니다!");
+        }
+    }
+
+    private void viewTryInfo() {
+        System.out.println("====== 여학생 공략 상태 ======");
+        System.out.println("다희 : " + checkTry(dahee.isTry, dahee.isCleared));
+        System.out.println("현지 : " + checkTry(hyunji.isTry, hyunji.isCleared));
+        System.out.println("희수 : " + checkTry(heesue.isTry, heesue.isCleared));
+        System.out.println("찬희 : " + checkTry(chanhee.isTry, chanhee.isCleared));
+    }
+    private String checkTry(boolean isTry, boolean isCleared) {
+        if(isTry) {
+            if (isCleared) {
+                return "성공";
+            } else {
+                return "실패";
+            }
+        } else {
+            return "미시도";
         }
     }
 
@@ -189,6 +213,8 @@ public class Menu {
             System.out.println("주의! 게임 설정을 하지 않으면 플레이를 할 수 없습니다!");
         } else if (player.playTime == 4) {
             System.out.println("모든 플레이어와 게임을 진행하였습니다.");
+            System.out.println("====== 게임을 종료합니다. ======");
+            System.exit(0);
         }
     }
 
