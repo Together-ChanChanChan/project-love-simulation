@@ -85,7 +85,6 @@ public class HeesueStage extends GameController implements Game {
 
     @Override
     public void printGirlInfo() {
-        System.out.println("printGirlInfo method 호출...");
         System.out.println("요즘 주변 나무들도 초록초록하고~ 내 초록가디건도 맘에 들고~");
         System.out.println("엇..! 사람이 있었네");
         System.out.println("안녕하세요~ 제 이름은 " + NAME + "입니다! 전 초록색을 좋아해요~");
@@ -98,7 +97,6 @@ public class HeesueStage extends GameController implements Game {
 
     @Override
     public void gameInfo() {
-        System.out.println("gameInfo method 호출...");
         System.out.println("======" + NAME + "STAGE 게임 소개 ======");
         System.out.println("이번 스테이지는 '선물하기'입니다.");
         System.out.println("미리 " + NAME + "가 작성한 총 10개의 선물 리스트가 주어집니다.");
