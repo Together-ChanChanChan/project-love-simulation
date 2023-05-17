@@ -12,7 +12,7 @@ public class Menu {
     ChanheeStage chanhee = new ChanheeStage();
     Scanner sc = new Scanner(System.in);
     String setName;
-    Player player = new Player(setName);
+    Player player = new Player();
     private boolean checkGameSet;
     public void mainMenu() {
         int menu;
@@ -55,12 +55,17 @@ public class Menu {
         } while(true);
     }
 
-    private void gameSet() {
+    public void gameSet() {
         if (!checkGameSet){
             sc.nextLine();
             System.out.println("??? : 안녕? 넌 처음보는 얼굴인데, 이름이 뭐니?");
             System.out.print("이름을 입력해주세요 : ");
             setName = sc.nextLine();
+            while (setName.length() == 0) {
+                System.out.println("이름이 입력되지 않았습니다.");
+                System.out.println("설정할 이름을 다시 입력해 주세요 : ");
+                setName = sc.nextLine();
+            }
             checkGameSet = true;
             System.out.println("??? : 우리 학교는 정말 매력적인 친구들이 많아, 꼭 데이트 성공하길 바래 0_<");
             System.out.println("게임 초기 설정이 완료되었습니다.");
@@ -110,7 +115,7 @@ public class Menu {
     private void viewMyInfo() {
         if(checkGameSet) {
             System.out.println("====== 나의 현재 정보 보기 ======");
-            System.out.println("착용한 옷 : " + player.nowSytle);
+            System.out.println("착용한 옷 : " + player.nowStyle);
             System.out.println("여학생 공략 횟수 : " + player.playTime);
         } else {
             System.out.println("주의! 게임 설정을 하지 않으면 플레이를 할 수 없습니다!");
@@ -140,16 +145,38 @@ public class Menu {
 
                 switch (menu) {
                     case 1 :
-                        dahee.play();
+                        if(dahee.isTry) {
+                            System.out.println("미안," + dahee.NAME + "를 꼬시는 건 한 번밖에 시도할 수 없어");
+                        } else {
+                            dahee.play(setName, player.nowStyle);
+                            // setName : 플레이어가 설정한 이름, player.nowStyle 플레이어가 현재 착용한 옷 상태
+                            player.playTime++;
+                            // 게임 끝나면 플레이 횟수 증가
+                        }
                         break;
                     case 2 :
-                        hyunji.play();
+                        if(hyunji.isTry) {
+                            System.out.println(hyunji.NAME + "와 데이트를 더 하고 싶겠지만, 한 번밖에 시도할 수 없어");
+                        } else {
+                            hyunji.play(setName, player.nowStyle);
+                            player.playTime++;
+                        }
                         break;
                     case 3 :
-                        heesue.play();
+                        if(heesue.isTry) {
+                            System.out.println(heesue.NAME +"를 또 보고 싶구나? 하지만, 기회는 한 번 뿐이었어");
+                        } else {
+                            heesue.play(setName, player.nowStyle);
+                            player.playTime++;
+                        }
                         break;
                     case 4 :
-                        chanhee.play();
+                        if(chanhee.isTry) {
+                            System.out.println("숫자 맞추는 게 재미있었지? 그치만, " + chanhee.NAME +"와 게임은 한 번밖에 할 수 없어");
+                        } else {
+                            chanhee.play(setName, player.nowStyle);
+                            player.playTime++;
+                        }
                         break;
                     case 5 :
                         return;
