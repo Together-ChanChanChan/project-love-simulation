@@ -78,7 +78,7 @@ public class HyunjiStage extends GameController implements Game {
                     System.out.println("1에서 3사이의 숫자를 입력해주세요 :)");
                     break;
             }
-        } while(playCount < 5 || winCount < 3);
+        } while(playCount < 5 && winCount < 3);
 
         if (winCount < 3) {
             isCleared = false;
