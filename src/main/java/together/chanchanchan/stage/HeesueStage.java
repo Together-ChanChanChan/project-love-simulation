@@ -50,11 +50,11 @@ public class HeesueStage extends GameController implements Game {
 
         while(count > 0){
             System.out.println("선물 세 가지를 골라 입력하세요.");
-            System.out.println("첫번째 선물 : ");
+            System.out.print("첫번째 선물 : ");
             selectedGift[0] = sc.nextLine();
-            System.out.println("두번째 선물 : ");
+            System.out.print("두번째 선물 : ");
             selectedGift[1] = sc.nextLine();
-            System.out.println("세번째 선물 : ");
+            System.out.print("세번째 선물 : ");
             selectedGift[2] = sc.nextLine();
 
            if(giftList.containsKey(selectedGift[0]) && giftList.containsKey(selectedGift[1]) && giftList.containsKey(selectedGift[2])){
