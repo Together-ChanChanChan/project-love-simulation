@@ -60,10 +60,10 @@ public class Menu {
 
     public void gameSet() {
         if (!checkGameSet){
-            sc.nextLine();
             System.out.println("??? : 안녕? 넌 처음보는 얼굴인데, 이름이 뭐니?");
             System.out.print("이름을 입력해주세요 : ");
             setName = sc.nextLine();
+
             while (setName.length() == 0) {
                 System.out.println("이름이 입력되지 않았습니다.");
                 System.out.print("설정할 이름을 다시 입력해 주세요 : ");
