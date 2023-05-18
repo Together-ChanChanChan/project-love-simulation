@@ -26,10 +26,10 @@ public class HeesueStage extends GameController implements Game {
         HashMap<String, Integer> giftList = new HashMap<>();
         giftList.put("녹차초콜릿",60);
         giftList.put("숲속무드등",50);
-        giftList.put("손톱깎이",45);
+        giftList.put("대파스콘",45);
         giftList.put("향수", 40);
         giftList.put("곰인형", 35);
-        giftList.put("안경", 30);
+        giftList.put("손톱깎이", 30);
         giftList.put("마우스", 25);
         giftList.put("편지", 20);
         giftList.put("종이학", 15);
