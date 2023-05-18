@@ -42,18 +42,20 @@ public class DaheeStage extends GameController implements Game {
                 continue;
             }
 
-            if (input_num == origin_num) {
+            if (input_num >= 1 && input_num <= 50 && input_num == origin_num) {
                 System.out.println("정답을" + (count) + "번째 시도에 맞췄어!");
                 isCleared = true;
                 break;
-            } else if (input_num > origin_num) {
+            } else if (input_num >= 1 && input_num <= 50 && input_num > origin_num) {
                 System.out.println("다운");
                 chance--;
                 count++;
-            } else if (input_num < origin_num) {
+            } else if (input_num >= 1 && input_num <= 50 && input_num < origin_num) {
                 System.out.println("업");
                 chance--;
                 count++;
+            } else if(input_num > 50 || input_num < 1){
+                System.out.println("1~50 사이의 숫자를 입력해줘!");
             }
         }
         gameEnd(NAME, isCleared);
