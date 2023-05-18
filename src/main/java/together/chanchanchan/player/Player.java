@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Player {
     public String[] style = {"맨 몸", "트레이닝복", "체크남방", "후드티", "정장"};
-    public String name;
     public String nowStyle = style[0];
     public int playTime = 0;
 
