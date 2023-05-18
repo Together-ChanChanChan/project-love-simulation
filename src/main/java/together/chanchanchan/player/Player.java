@@ -23,9 +23,9 @@ public class Player {
 
         while (true){
             selectedStyle = sc.nextInt();
-            if(selectedStyle >=1 && selectedStyle <6){
-                this.nowStyle = this.style[selectedStyle-1];
-                System.out.println("스타일이 [" + style[selectedStyle-1] + "] (으)로 변경되었습니다.");
+            if(selectedStyle >= 1 && selectedStyle < 6){
+                this.nowStyle = this.style[selectedStyle - 1];
+                System.out.println("스타일이 [" + style[selectedStyle - 1] + "] (으)로 변경되었습니다.");
                 break;
             } else {
                 System.out.println("1~6 범위의 숫자를 입력하세요. ");
