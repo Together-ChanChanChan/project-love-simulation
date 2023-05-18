@@ -2,7 +2,6 @@ package together.chanchanchan.view;
 
 import together.chanchanchan.player.Player;
 import together.chanchanchan.stage.*;
-
 import java.util.Scanner;
 
 public class Menu {
@@ -12,40 +11,44 @@ public class Menu {
     ChanheeStage chanhee = new ChanheeStage();
     Scanner sc = new Scanner(System.in);
     String setName;
-    Player player = new Player(setName);
+    Player player = new Player();
     private boolean checkGameSet;
     public void mainMenu() {
-        int menu;
+        String menu;
 
         do {
             System.out.println("====== 복학생 연애 시뮬레이션 ======");
             System.out.println("1. 게임 설정하기");
             System.out.println("2. 여학생 정보 보기");
             System.out.println("3. 현재 내 캐릭터 상태 보기");
-            System.out.println("4. 옷 갈아입기");
-            System.out.println("5. 게임 시작하기");
-            System.out.println("6. 게임 끝내기");
+            System.out.println("4. 여학생 공략 상태 확인하기");
+            System.out.println("5. 옷 갈아입기");
+            System.out.println("6. 게임 시작하기");
+            System.out.println("7. 게임 끝내기");
             System.out.println("==============================");
             System.out.print("메뉴 선택하기 : ");
-            menu = sc.nextInt();
+            menu = sc.nextLine();
 
             switch (menu) {
-                case 1 :
+                case "1" :
                     gameSet();
                     break;
-                case 2 :
+                case "2" :
                     viewGirlInfoMenu();
                     break;
-                case 3 :
+                case "3" :
                     viewMyInfo();
                     break;
-                case 4 :
+                case "4" :
+                    viewTryInfo();
+                    break;
+                case "5" :
                     changeClothes();
                     break;
-                case 5 :
+                case "6" :
                     checkStart();
                     break;
-                case 6 :
+                case "7" :
                     checkEnd();
                     break;
                 default:
@@ -55,12 +58,17 @@ public class Menu {
         } while(true);
     }
 
-    private void gameSet() {
+    public void gameSet() {
         if (!checkGameSet){
-            sc.nextLine();
             System.out.println("??? : 안녕? 넌 처음보는 얼굴인데, 이름이 뭐니?");
             System.out.print("이름을 입력해주세요 : ");
             setName = sc.nextLine();
+
+            while (setName.length() == 0) {
+                System.out.println("이름이 입력되지 않았습니다.");
+                System.out.print("설정할 이름을 다시 입력해 주세요 : ");
+                setName = sc.nextLine();
+            }
             checkGameSet = true;
             System.out.println("??? : 우리 학교는 정말 매력적인 친구들이 많아, 꼭 데이트 성공하길 바래 0_<");
             System.out.println("게임 초기 설정이 완료되었습니다.");
@@ -80,22 +88,22 @@ public class Menu {
                 System.out.println("5. 이전 메뉴로 돌아가기");
                 System.out.println("==========================");
                 System.out.print("번호를 입력하세요 : ");
-                int menu = sc.nextInt();
+                String menu = sc.nextLine();
 
                 switch (menu) {
-                    case 1 :
+                    case "1" :
                         dahee.printGirlInfo();
                         break;
-                    case 2 :
+                    case "2" :
                         hyunji.printGirlInfo();
                         break;
-                    case 3 :
+                    case "3" :
                         heesue.printGirlInfo();
                         break;
-                    case 4 :
+                    case "4" :
                         chanhee.printGirlInfo();
                         break;
-                    case 5 :
+                    case "5" :
                         return;
                     default:
                         System.out.println("일치하지 않는 번호입니다.");
@@ -110,10 +118,30 @@ public class Menu {
     private void viewMyInfo() {
         if(checkGameSet) {
             System.out.println("====== 나의 현재 정보 보기 ======");
-            System.out.println("착용한 옷 : " + player.nowSytle);
+            System.out.println("내 이름 : " + setName);
+            System.out.println("착용한 옷 : " + player.nowStyle);
             System.out.println("여학생 공략 횟수 : " + player.playTime);
         } else {
             System.out.println("주의! 게임 설정을 하지 않으면 플레이를 할 수 없습니다!");
+        }
+    }
+
+    private void viewTryInfo() {
+        System.out.println("====== 여학생 공략 상태 ======");
+        System.out.println("다희 : " + checkTry(dahee.isTry, dahee.isCleared));
+        System.out.println("현지 : " + checkTry(hyunji.isTry, hyunji.isCleared));
+        System.out.println("희수 : " + checkTry(heesue.isTry, heesue.isCleared));
+        System.out.println("찬희 : " + checkTry(chanhee.isTry, chanhee.isCleared));
+    }
+    private String checkTry(boolean isTry, boolean isCleared) {
+        if(isTry) {
+            if (isCleared) {
+                return "성공";
+            } else {
+                return "실패";
+            }
+        } else {
+            return "미시도";
         }
     }
 
@@ -136,22 +164,44 @@ public class Menu {
                 System.out.println("5. 이전 메뉴로 돌아가기");
                 System.out.println("==========================");
                 System.out.print("번호를 입력하세요 : ");
-                int menu = sc.nextInt();
+                String menu = sc.nextLine();
 
                 switch (menu) {
-                    case 1 :
-                        dahee.play();
+                    case "1" :
+                        if(dahee.isTry) {
+                            System.out.println("미안," + dahee.NAME + "를 꼬시는 건 한 번밖에 시도할 수 없어");
+                        } else {
+                            dahee.play(setName, player.nowStyle);
+                            // setName : 플레이어가 설정한 이름, player.nowStyle 플레이어가 현재 착용한 옷 상태
+                            player.playTime++;
+                            // 게임 끝나면 플레이 횟수 증가
+                        }
                         break;
-                    case 2 :
-                        hyunji.play();
+                    case "2" :
+                        if(hyunji.isTry) {
+                            System.out.println(hyunji.NAME + "와 데이트를 더 하고 싶겠지만, 한 번밖에 시도할 수 없어");
+                        } else {
+                            hyunji.play(setName, player.nowStyle);
+                            player.playTime++;
+                        }
                         break;
-                    case 3 :
-                        heesue.play();
+                    case "3" :
+                        if(heesue.isTry) {
+                            System.out.println(heesue.NAME +"를 또 보고 싶구나? 하지만, 기회는 한 번 뿐이었어");
+                        } else {
+                            heesue.play(setName, player.nowStyle);
+                            player.playTime++;
+                        }
                         break;
-                    case 4 :
-                        chanhee.play();
+                    case "4" :
+                        if(chanhee.isTry) {
+                            System.out.println("숫자 맞추는 게 재미있었지? 그치만, " + chanhee.NAME +"와 게임은 한 번밖에 할 수 없어");
+                        } else {
+                            chanhee.play(setName, player.nowStyle);
+                            player.playTime++;
+                        }
                         break;
-                    case 5 :
+                    case "5" :
                         return;
                     default:
                         System.out.println("일치하지 않는 번호입니다.");
@@ -162,23 +212,36 @@ public class Menu {
             System.out.println("주의! 게임 설정을 하지 않으면 플레이를 할 수 없습니다!");
         } else if (player.playTime == 4) {
             System.out.println("모든 플레이어와 게임을 진행하였습니다.");
+            System.out.println("====== 게임을 종료합니다. ======");
+            System.exit(0);
         }
     }
 
     private void checkEnd() {
+        System.out.println("??? : " + setName + ", 안녕! 벌써 게임을 끝낼 셈이야?");
+        System.out.println(dahee.NAME + "은 '" + checkTry(dahee.isTry, dahee.isCleared) + "' 했고,");
+        System.out.println(hyunji.NAME + "은 '" + checkTry(hyunji.isTry, hyunji.isCleared) + "' 했고,");
+        System.out.println(heesue.NAME + "은 '" + checkTry(heesue.isTry, heesue.isCleared) + "' 했고,");
+        System.out.println(chanhee.NAME + "은 '" + checkTry(chanhee.isTry, chanhee.isCleared) + "' 했구나!");
+        finalCheckEnd();
+    }
+
+    private void finalCheckEnd() {
         do {
-            System.out.print("게임을 종료하시겠습니까? (예 : y / 아니오 : n) : ");
+            System.out.print("@@@ : 너 정말로 게임을 종료할 거니? (예 : y / 아니오 : n) : ");
             String check = sc.next();
             sc.nextLine();
 
             switch (check) {
                 case "y" :
                 case "Y" :
+                    System.out.println(setName + "! 너무 즐거웠어, 나중에 또 보자 0_<");
                     System.out.println("====== 게임을 종료합니다. ======");
                     System.exit(0);
                     break;
                 case "n" :
                 case "N" :
+                    System.out.println(setName + "! 역시 그럴 줄 알았어, 계속 게임을 해보자구 0_<");
                     System.out.println("===== 이전 메뉴로 돌아갑니다. ======");
                     return;
                 default:
