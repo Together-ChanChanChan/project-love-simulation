@@ -1,5 +1,6 @@
 package together.chanchanchan.stage;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DaheeStage extends GameController implements Game {
@@ -33,7 +34,13 @@ public class DaheeStage extends GameController implements Game {
 
         while (chance > 0) {
             System.out.print("입력: ");
-            input_num = sc.nextInt();
+            try {
+                input_num = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("1~50 사이의 숫자를 입력해줘!");
+                sc.nextLine();
+                continue;
+            }
 
             if (input_num == origin_num) {
                 System.out.println("정답을" + (count) + "번째 시도에 맞췄어!");
