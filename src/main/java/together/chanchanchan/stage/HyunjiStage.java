@@ -1,6 +1,5 @@
 package together.chanchanchan.stage;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class HyunjiStage extends GameController implements Game {

@@ -1,10 +1,7 @@
 package together.chanchanchan.stage;
 
-
-
 import java.util.HashMap;
 import java.util.Scanner;
-
 
 public class HeesueStage extends GameController implements Game {
     public static final String NAME = "희수";

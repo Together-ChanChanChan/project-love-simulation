@@ -2,7 +2,6 @@ package together.chanchanchan.view;
 
 import together.chanchanchan.player.Player;
 import together.chanchanchan.stage.*;
-
 import java.util.Scanner;
 
 public class Menu {
